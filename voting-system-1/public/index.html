@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#667eea" />
+    <meta name="description" content="Decentralized Voting System built with React, Solidity, and Ethereum blockchain. Vote for Subhash, Abhik, or Pranav securely on the blockchain." />
+    <meta name="keywords" content="voting, blockchain, ethereum, decentralized, react, web3, dapp" />
+    <meta name="author" content="Voting System" />
+    
+    <!-- Open Graph Meta Tags for social sharing -->
+    <meta property="og:title" content="Decentralized Voting System" />
+    <meta property="og:description" content="Secure blockchain-based voting system with candidates Subhash, Abhik, and Pranav" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>" />
+    
+    <title>Decentralized Voting System - Vote for Subhash, Abhik, or Pranav</title>
+    
+    <style>
+      /* Loading screen styles */
+      #loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        z-index: 9999;
+      }
+      
+      .loading-spinner {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loading-text {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+      
+      .loading-subtext {
+        font-size: 1em;
+        opacity: 0.8;
+      }
+      
+      /* Hide loading screen when React loads */
+      body.loaded #loading {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">🗳️ Loading Voting System</div>
+      <div class="loading-subtext">Connecting to blockchain...</div>
+    </div>
+    
+    <!-- Fallback for users with JavaScript disabled -->
+    <noscript>
+      <div style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        padding: 20px;
+        z-index: 10000;
+      ">
+        <h1 style="font-size: 3em; margin-bottom: 20px;">🗳️</h1>
+        <h2 style="margin-bottom: 20px;">JavaScript Required</h2>
+        <p style="font-size: 1.2em; margin-bottom: 20px;">
+          This decentralized voting system requires JavaScript to interact with the Ethereum blockchain.
+        </p>
+        <p style="font-size: 1em; opacity: 0.8;">
+          Please enable JavaScript in your browser settings and refresh the page.
+        </p>
+        <div style="margin-top: 30px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+          <strong>Features:</strong><br>
+          • Vote for Subhash, Abhik, or Pranav<br>
+          • Secure blockchain voting<br>
+          • Real-time results<br>
+          • MetaMask integration
+        </div>
+      </div>
+    </noscript>
+    
+    <!-- React App Root -->
+    <div id="root"></div>
+    
+    <!-- Remove loading screen when React loads -->
+    <script>
+      // Hide loading screen when React component mounts
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.body.classList.add('loaded');
+        }, 1000); // Small delay for smooth transition
+      });
+      
+      // Also hide on DOMContentLoaded as backup
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          document.body.classList.add('loaded');
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

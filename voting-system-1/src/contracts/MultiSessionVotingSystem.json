@@ -1,0 +1,628 @@
+{
+  "address": "0xC9033fd04E617cb70b65883Beb030F4C1aa309EA",
+  "abi": [
+    {
+      "type": "constructor",
+      "stateMutability": "undefined",
+      "payable": false,
+      "inputs": []
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "CandidateAdded",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "sessionId",
+          "indexed": true
+        },
+        {
+          "type": "uint256",
+          "name": "candidateId",
+          "indexed": false
+        },
+        {
+          "type": "string",
+          "name": "candidateName",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "CandidateRemoved",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "sessionId",
+          "indexed": true
+        },
+        {
+          "type": "uint256",
+          "name": "candidateId",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "CandidateUpdated",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "sessionId",
+          "indexed": true
+        },
+        {
+          "type": "uint256",
+          "name": "candidateId",
+          "indexed": false
+        },
+        {
+          "type": "string",
+          "name": "newName",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "SessionCreated",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "sessionId",
+          "indexed": true
+        },
+        {
+          "type": "string",
+          "name": "sessionName",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "startTime",
+          "indexed": false
+        },
+        {
+          "type": "uint256",
+          "name": "endTime",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "SessionEnded",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "sessionId",
+          "indexed": true
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "SessionStarted",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "sessionId",
+          "indexed": true
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "VoteCast",
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "sessionId",
+          "indexed": true
+        },
+        {
+          "type": "address",
+          "name": "voter",
+          "indexed": true
+        },
+        {
+          "type": "uint256",
+          "name": "candidateId",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "anonymous": false,
+      "name": "VoterRegistered",
+      "inputs": [
+        {
+          "type": "address",
+          "name": "voter",
+          "indexed": true
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "addCandidateToSession",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        },
+        {
+          "type": "string",
+          "name": "_candidateName"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "createSession",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "string",
+          "name": "_sessionName"
+        },
+        {
+          "type": "uint256",
+          "name": "_startTime"
+        },
+        {
+          "type": "uint256",
+          "name": "_endTime"
+        },
+        {
+          "type": "string[]",
+          "name": "_candidateNames"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "endSession",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "getAllActiveSessions",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "uint256[]",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getAllSessions",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "uint256[]",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getSession",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "name": "sessionName"
+        },
+        {
+          "type": "uint256",
+          "name": "startTime"
+        },
+        {
+          "type": "uint256",
+          "name": "endTime"
+        },
+        {
+          "type": "bool",
+          "name": "isActive"
+        },
+        {
+          "type": "uint256",
+          "name": "candidateCount"
+        },
+        {
+          "type": "uint256",
+          "name": "totalVotes"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getSessionCandidates",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "tuple[]",
+          "name": "",
+          "components": [
+            {
+              "type": "uint256",
+              "name": "id"
+            },
+            {
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "uint256",
+              "name": "voteCount"
+            },
+            {
+              "type": "bool",
+              "name": "isActive"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getSessionWinner",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "string",
+          "name": "winnerName"
+        },
+        {
+          "type": "uint256",
+          "name": "winnerVotes"
+        },
+        {
+          "type": "bool",
+          "name": "isTie"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "getVoterChoice",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": "_voter"
+        },
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "hasVotedInSession",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": "_voter"
+        },
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "bool",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "isRegisteredVoter",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": "_voter"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "bool",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "isSessionActive",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "bool",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "registerMultipleVoters",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address[]",
+          "name": "_voters"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "registerSelf",
+      "constant": false,
+      "payable": false,
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "registerVoter",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": "_voter"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "registeredVoters",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "address",
+          "name": ""
+        }
+      ],
+      "outputs": [
+        {
+          "type": "bool",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "removeCandidateFromSession",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        },
+        {
+          "type": "uint256",
+          "name": "_candidateId"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "sessionCount",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "startSession",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "updateCandidate",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        },
+        {
+          "type": "uint256",
+          "name": "_candidateId"
+        },
+        {
+          "type": "string",
+          "name": "_newName"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "vote",
+      "constant": false,
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": "_sessionId"
+        },
+        {
+          "type": "uint256",
+          "name": "_candidateId"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "type": "function",
+      "name": "votingSessions",
+      "constant": true,
+      "stateMutability": "view",
+      "payable": false,
+      "inputs": [
+        {
+          "type": "uint256",
+          "name": ""
+        }
+      ],
+      "outputs": [
+        {
+          "type": "uint256",
+          "name": "sessionId"
+        },
+        {
+          "type": "string",
+          "name": "sessionName"
+        },
+        {
+          "type": "uint256",
+          "name": "startTime"
+        },
+        {
+          "type": "uint256",
+          "name": "endTime"
+        },
+        {
+          "type": "bool",
+          "name": "isActive"
+        },
+        {
+          "type": "bool",
+          "name": "isCreated"
+        },
+        {
+          "type": "uint256",
+          "name": "candidateCount"
+        },
+        {
+          "type": "uint256",
+          "name": "totalVotes"
+        }
+      ]
+    }
+  ]
+}
